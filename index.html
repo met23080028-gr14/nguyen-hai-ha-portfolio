@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="vi" data-lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nguyễn Hải Hà - Marketing & Communication Portfolio</title>
+<meta name="description" content="Portfolio of Nguyen Hai Ha - content creation, video production and project coordination.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14161a;
+    --paper:#ffffff;
+    --mist:#f4f6f9;
+    --navy:#1f3864;
+    --navy-2:#2e4e86;
+    --line:#e4e7ec;
+    --muted:#5c6470;
+    --maxw:1120px;
+    --r:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Be Vietnam Pro",system-ui,sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.58;
+    font-size:15px;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+  /* language toggle */
+  [data-lang="vi"] .en{display:none}
+  [data-lang="en"] .vi{display:none}
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(255,255,255,.86);
+    backdrop-filter:saturate(160%) blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .brand{font-weight:700;letter-spacing:.1px;font-size:1rem}
+  .brand span{color:var(--navy)}
+  .nav-links{display:flex;gap:26px;font-size:.9rem;font-weight:500}
+  .nav-links a{color:var(--muted);transition:color .2s}
+  .nav-links a:hover{color:var(--navy)}
+  .nav-right{display:flex;align-items:center;gap:12px}
+  .lang{
+    display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;
+    font-size:.78rem;font-weight:600;
+  }
+  .lang button{
+    background:transparent;border:0;cursor:pointer;padding:6px 12px;color:var(--muted);
+    font-family:inherit;font-weight:600;
+  }
+  .lang button.active{background:var(--navy);color:#fff}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:10px 18px;border-radius:999px;font-weight:600;font-size:.88rem;
+    border:1px solid var(--navy);color:var(--navy);background:#fff;
+    transition:all .2s;cursor:pointer;
+  }
+  .btn:hover{background:var(--navy);color:#fff}
+  .btn.solid{background:var(--navy);color:#fff}
+  .btn.solid:hover{background:var(--navy-2);border-color:var(--navy-2)}
+  .btn.small{padding:8px 15px;font-size:.82rem}
+
+  /* ---------- hero ---------- */
+  .hero{padding:64px 0 40px}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+  .eyebrow{
+    font-size:.78rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--navy);margin-bottom:18px;
+  }
+  .hero h1{font-size:clamp(1.9rem,3.8vw,2.75rem);font-weight:700;line-height:1.1;letter-spacing:-.3px}
+  .hero .role{font-size:clamp(.98rem,1.5vw,1.1rem);font-weight:600;color:var(--ink);margin-top:12px}
+  .hero p.lead{color:var(--muted);margin-top:16px;max-width:36em;font-size:.95rem}
+  .hero-cta{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap}
+  .portrait{display:flex;justify-content:center;align-items:center}
+  .portrait img{max-width:100%;max-height:560px;width:auto;height:auto;border-radius:16px;box-shadow:0 26px 52px -30px rgba(20,30,55,.42);display:block}
+
+  /* ---------- section shell ---------- */
+  section{padding:66px 0}
+  .band{background:var(--mist);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .sec-head{margin-bottom:38px;max-width:52em}
+  .sec-num{font-size:.78rem;font-weight:700;letter-spacing:.18em;color:var(--navy-2);text-transform:uppercase}
+  .sec-head h2{font-size:clamp(1.3rem,2.4vw,1.8rem);font-weight:700;letter-spacing:.01em;margin-top:8px;text-transform:uppercase}
+  .sec-head p{color:var(--muted);margin-top:12px}
+
+  /* about */
+  .about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:44px;align-items:center}
+  .about-grid .portrait img{max-height:460px}
+  .about-text p{margin-bottom:16px;color:#33383f}
+
+  /* objective */
+  .objective{font-size:clamp(1rem,1.7vw,1.22rem);font-weight:500;line-height:1.5;max-width:32em}
+  .objective b{color:var(--navy)}
+
+  /* skills */
+  .skill-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .skill{
+    background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:24px;
+    transition:transform .2s,box-shadow .2s,border-color .2s;
+  }
+  .skill:hover{transform:translateY(-3px);box-shadow:0 18px 34px -26px rgba(31,56,100,.55);border-color:#cdd6e4}
+  .skill .k{font-size:.72rem;font-weight:700;color:var(--navy);letter-spacing:.06em}
+  .skill h3{font-size:1rem;font-weight:600;margin:10px 0 8px}
+  .skill p{font-size:.88rem;color:var(--muted)}
+
+  /* projects */
+  .project{
+    border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff;
+    margin-bottom:34px;box-shadow:0 20px 44px -34px rgba(20,30,55,.5);
+  }
+  /* compact text header (image moved into gallery) */
+  .p-body{padding:28px 34px 22px}
+  .p-num{font-size:.76rem;font-weight:700;letter-spacing:.16em;color:var(--navy-2);text-transform:uppercase}
+  .project h3{font-size:clamp(1.1rem,1.55vw,1.4rem);font-weight:700;margin:8px 0 5px;letter-spacing:-.2px;line-height:1.24;color:var(--ink)}
+  .p-role{font-size:.86rem;color:var(--navy);font-weight:600;margin:0 0 16px}
+  .p-intro{color:var(--muted);font-size:.96rem;margin-bottom:16px;font-style:italic}
+  .p-list{list-style:none;margin:0 0 18px}
+  .p-list li{position:relative;padding-left:20px;margin-bottom:9px;color:#3a3f47;font-size:.95rem}
+  .p-list li::before{content:"";position:absolute;left:0;top:10px;width:7px;height:7px;background:var(--navy);border-radius:2px;transform:rotate(45deg)}
+  .p-list li b{color:var(--navy);font-weight:600}
+  .stat{
+    display:inline-flex;flex-direction:column;background:var(--mist);border:1px solid var(--line);
+    border-radius:12px;padding:14px 20px;margin:4px 0 18px;
+  }
+  .stat b{font-size:1.5rem;font-weight:800;color:var(--navy);line-height:1}
+  .stat span{font-size:.8rem;color:var(--muted);margin-top:4px}
+  .link-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+  .vlink{
+    display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;
+    background:#fff;border:1px solid var(--line);font-weight:600;font-size:.85rem;color:var(--ink);
+    transition:all .2s;
+  }
+  .vlink:hover{border-color:var(--navy);color:var(--navy);transform:translateY(-2px)}
+  .vlink svg{width:15px;height:15px}
+  /* galleries - clean, borderless */
+  .gallery{display:grid;gap:12px;padding:4px 34px 32px}
+  .g5{grid-template-columns:repeat(5,1fr)}
+  .g4{grid-template-columns:repeat(4,1fr)}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .g2{grid-template-columns:repeat(2,1fr)}
+  .gfeat{grid-template-columns:repeat(2,1fr)}
+  .gfeat .wide{grid-column:1 / -1;aspect-ratio:16/6}
+  .ach-gallery{padding:0}
+  .ach-gallery .thumb{aspect-ratio:5/4}
+  .thumb{
+    aspect-ratio:16/10;overflow:hidden;border-radius:12px;
+    background:var(--mist);cursor:pointer;position:relative;
+    box-shadow:0 10px 22px -14px rgba(20,30,55,.45);
+  }
+  .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .35s}
+  .thumb:hover img{transform:scale(1.05)}
+
+  /* achievements */
+  .ach-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+  .ach-col h4{font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:var(--navy);margin:0 0 10px}
+  .ach-list{list-style:none;margin:0 0 26px}
+  .ach-list li{padding:9px 0;border-bottom:1px solid var(--line);color:#3a3f47;font-size:.96rem}
+
+  /* philosophy */
+  .quote{display:grid;grid-template-columns:1.3fr .7fr;gap:44px;align-items:center}
+  .quote blockquote{
+    font-family:"Fraunces",Georgia,serif;font-style:italic;
+    font-size:clamp(1.15rem,2.2vw,1.55rem);line-height:1.42;color:var(--ink);font-weight:400;
+  }
+  .quote blockquote::before{content:"\201C";color:var(--navy);font-size:2.4em;line-height:0;vertical-align:-.35em;margin-right:.05em}
+  .quote .portrait img{max-height:420px}
+
+  /* contact */
+  .contact{background:var(--navy);color:#fff}
+  .contact .sec-num{color:#9fb4d6}
+  .contact h2{color:#fff}
+  .contact .sec-head p{color:#c7d3e6}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+  .cinfo{list-style:none;display:flex;flex-direction:column;gap:14px}
+  .cinfo li{display:flex;align-items:center;gap:14px;font-size:1.02rem}
+  .cinfo svg{width:20px;height:20px;flex:none;color:#9fb4d6}
+  .contact .btn{border-color:#fff;color:#fff;background:transparent}
+  .contact .btn:hover{background:#fff;color:var(--navy)}
+  .contact .btn.solid{background:#fff;color:var(--navy)}
+  .social{display:flex;gap:12px;margin-top:8px;flex-wrap:wrap}
+
+  footer{padding:26px 0;text-align:center;color:var(--muted);font-size:.85rem;border-top:1px solid rgba(255,255,255,.12)}
+  .contact footer{border:0}
+
+  /* lightbox */
+  .lb{position:fixed;inset:0;background:rgba(10,12,16,.92);display:none;align-items:center;justify-content:center;z-index:100;padding:30px}
+  .lb.open{display:flex}
+  .lb img{max-width:92vw;max-height:88vh;width:auto;height:auto;border-radius:8px}
+  .lb-close{position:absolute;top:22px;right:26px;color:#fff;font-size:2rem;cursor:pointer;line-height:1;background:none;border:0}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* focus */
+  a:focus-visible,button:focus-visible,.vlink:focus-visible{outline:2px solid var(--navy);outline-offset:3px}
+
+  @media (prefers-reduced-motion:reduce){
+    *{scroll-behavior:auto!important;transition:none!important;animation:none!important}
+    .reveal{opacity:1;transform:none}
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width:900px){
+    .nav-links{display:none}
+    .hero-grid,.about-grid,.ach-grid,.quote,.contact-grid{grid-template-columns:1fr}
+    .hero{padding:40px 0 20px}
+    .hero-grid{gap:32px}
+    .portrait{order:-1}
+    .portrait img{max-height:440px}
+    .skill-grid{grid-template-columns:1fr 1fr}
+    .g5,.g4{grid-template-columns:repeat(2,1fr)}
+    .g3{grid-template-columns:repeat(2,1fr)}
+    .gfeat{grid-template-columns:repeat(2,1fr)}
+    section{padding:48px 0}
+  }
+  @media (max-width:560px){
+    .skill-grid{grid-template-columns:1fr}
+    .g5,.g4,.g3,.gfeat{grid-template-columns:1fr}
+    .ach-gallery{grid-template-columns:1fr 1fr}
+    .p-body{padding:24px 22px}
+    .gallery{padding:4px 22px 24px}
+    .nav-right .btn.cvbtn{display:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header>
+  <div class="wrap nav">
+    <div class="brand">Nguyễn Hải Hà<span>.</span></div>
+    <nav class="nav-links">
+      <a href="#about"><span class="vi">Giới thiệu</span><span class="en">About</span></a>
+      <a href="#skills"><span class="vi">Kỹ năng</span><span class="en">Skills</span></a>
+      <a href="#projects"><span class="vi">Dự án</span><span class="en">Projects</span></a>
+      <a href="#awards"><span class="vi">Thành tựu</span><span class="en">Awards</span></a>
+      <a href="#contact"><span class="vi">Liên hệ</span><span class="en">Contact</span></a>
+    </nav>
+    <div class="nav-right">
+      <div class="lang" role="group" aria-label="Language">
+        <button data-set="vi" class="active">VI</button>
+        <button data-set="en">EN</button>
+      </div>
+      <a class="btn small cvbtn" href="cv.pdf" target="_blank" rel="noopener">
+        <span class="vi">Tải CV</span><span class="en">Download CV</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="reveal">
+      <h1>Nguyễn Hải Hà</h1>
+      <div class="role">
+        <span class="vi">Sáng tạo nội dung · Sản xuất video · Điều phối dự án</span>
+        <span class="en">Content Creation · Video Production · Project Coordination</span>
+      </div>
+      <p class="lead">
+        <span class="vi">Sinh viên năm 3 ngành Quản trị Doanh nghiệp &amp; Công nghệ, biến ý tưởng truyền thông thành video và ấn phẩm có sức lan truyền trên nền tảng số.</span>
+        <span class="en">Third-year Business Administration &amp; Technology student turning communication ideas into shareable videos and visuals across digital platforms.</span>
+      </p>
+      <div class="hero-cta">
+        <a class="btn solid" href="#projects"><span class="vi">Xem dự án</span><span class="en">View projects</span></a>
+        <a class="btn" href="#contact"><span class="vi">Liên hệ</span><span class="en">Get in touch</span></a>
+      </div>
+    </div>
+    <div class="portrait reveal">
+      <img data-base="profile-1" alt="Nguyễn Hải Hà" onerror="imgFallback(this)">
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about" class="band">
+  <div class="wrap about-grid">
+    <div class="portrait reveal">
+      <img data-base="profile-2" alt="Nguyễn Hải Hà" onerror="imgFallback(this)">
+    </div>
+    <div class="about-text reveal">
+      <div class="sec-num">01 · <span class="vi">Giới thiệu</span><span class="en">About me</span></div>
+      <div class="sec-head" style="margin-bottom:20px">
+        <h2><span class="vi">Xin chào, tôi là Hải Hà</span><span class="en">Hello, I'm Hai Ha</span></h2>
+      </div>
+      <p>
+        <span class="vi">Tôi là sinh viên năm 3 ngành Quản trị Doanh nghiệp và Công nghệ tại Trường Quản trị và Kinh doanh - Đại học Quốc gia Hà Nội, với kinh nghiệm thực tế về sáng tạo nội dung, viết kịch bản và điều phối dự án qua các cuộc thi học thuật và chiến dịch truyền thông cộng đồng.</span>
+        <span class="en">I'm a third-year Business Administration and Technology student at the School of Business and Management, Vietnam National University Hanoi, with hands-on experience in content creation, scriptwriting and project coordination through academic competitions and community communication campaigns.</span>
+      </p>
+      <p>
+        <span class="vi">Nền tảng học vấn cho tôi tư duy thiên về thương hiệu và thị trường, trong khi trải nghiệm dự án rèn cho tôi kỹ năng sản xuất nội dung thực chiến. Tôi hướng tới việc tạo ra những trải nghiệm tích cực và giá trị thực tế cho người tiếp nhận.</span>
+        <span class="en">My academic background gives me brand- and market-oriented thinking, while project experience has sharpened my practical content-production skills. I aim to create positive experiences and real value for every audience.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= OBJECTIVE ================= -->
+<section>
+  <div class="wrap reveal">
+    <div class="sec-num">02 · <span class="vi">Mục tiêu nghề nghiệp</span><span class="en">Career objective</span></div>
+    <div class="sec-head"><h2><span class="vi">Điều tôi hướng tới</span><span class="en">What I'm aiming for</span></h2></div>
+    <p class="objective">
+      <span class="vi">Mong muốn tham gia <b>sản xuất video, sáng tạo nội dung</b> và các chiến dịch marketing - phối hợp cùng đội ngũ và designer để tạo ra những clip có tính lan truyền trên YouTube, Facebook, TikTok trong môi trường trẻ, chuyên nghiệp.</span>
+      <span class="en">To join <b>video production, content creation</b> and marketing campaigns - working with the team and designers to make shareable clips for YouTube, Facebook and TikTok in a young, professional environment.</span>
+    </p>
+  </div>
+</section>
+
+<!-- ================= SKILLS ================= -->
+<section id="skills" class="band">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-num">03 · <span class="vi">Kỹ năng</span><span class="en">Skills</span></div>
+      <h2><span class="vi">Năng lực chuyên môn</span><span class="en">Areas of expertise</span></h2>
+    </div>
+    <div class="skill-grid">
+      <div class="skill reveal">
+        <div class="k">01</div>
+        <h3><span class="vi">Sản xuất video</span><span class="en">Video production</span></h3>
+        <p><span class="vi">Quay, chụp và dựng video ngắn bằng CapCut phục vụ YouTube, Facebook, TikTok.</span><span class="en">Filming, shooting and editing short videos with CapCut for YouTube, Facebook and TikTok.</span></p>
+      </div>
+      <div class="skill reveal">
+        <div class="k">02</div>
+        <h3><span class="vi">Sáng tạo nội dung</span><span class="en">Content creation</span></h3>
+        <p><span class="vi">Viết kịch bản, lên ý tưởng, lập kế hoạch nội dung và nắm bắt xu hướng.</span><span class="en">Scriptwriting, ideation, content planning and trend spotting.</span></p>
+      </div>
+      <div class="skill reveal">
+        <div class="k">03</div>
+        <h3><span class="vi">Thiết kế &amp; phối hợp</span><span class="en">Design &amp; coordination</span></h3>
+        <p><span class="vi">Thiết kế ấn phẩm bằng Canva; brief và phối hợp cùng designer đến khi hoàn thiện.</span><span class="en">Designing visuals in Canva; briefing and working with designers through to final output.</span></p>
+      </div>
+      <div class="skill reveal">
+        <div class="k">04</div>
+        <h3><span class="vi">Sự kiện &amp; điều phối</span><span class="en">Events &amp; coordination</span></h3>
+        <p><span class="vi">Hỗ trợ hậu cần, vận hành tại chỗ và phối hợp đa bộ phận trong tổ chức sự kiện.</span><span class="en">Supporting logistics, on-site operations and cross-team coordination for events.</span></p>
+      </div>
+      <div class="skill reveal">
+        <div class="k">05</div>
+        <h3><span class="vi">Công cụ &amp; công nghệ</span><span class="en">Tools &amp; tech</span></h3>
+        <p><span class="vi">Công cụ AI (ChatGPT, Gemini, Claude), Microsoft Office và Google Workspace.</span><span class="en">AI tools (ChatGPT, Gemini, Claude), Microsoft Office and Google Workspace.</span></p>
+      </div>
+      <div class="skill reveal">
+        <div class="k">06</div>
+        <h3><span class="vi">Ngoại ngữ</span><span class="en">Languages</span></h3>
+        <p><span class="vi">Tiếng Anh B2 (Aptis ESOL B2, Cambridge PET B1); tiếng Việt bản ngữ.</span><span class="en">English B2 (Aptis ESOL B2, Cambridge PET B1); Vietnamese (native).</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROJECTS ================= -->
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-num">04 · <span class="vi">Dự án / Sản phẩm tiêu biểu</span><span class="en">Featured projects</span></div>
+      <h2><span class="vi">Sản phẩm tiêu biểu</span><span class="en">Selected work</span></h2>
+    </div>
+
+    <!-- Project 01 -->
+    <article class="project reveal">
+      <div class="p-body">
+        <div class="p-num">01</div>
+        <h3><span class="vi">Chiến dịch truyền thông pháp luật "Tổ Quốc Bình Yên"</span><span class="en">Legal communication campaign "To Quoc Binh Yen"</span></h3>
+        <div class="p-role"><span class="vi">Vai trò: Trợ lý Sáng tạo Nội dung · Viết kịch bản · Quay và dựng</span><span class="en">Role: Content Creation Assistant · Scriptwriting · Filming &amp; editing</span></div>
+        <p class="p-intro">
+          <span class="vi">"Tổ Quốc Bình Yên" là chiến dịch truyền thông cộng đồng do Bộ Công an tổ chức hướng tới kỷ niệm 80 năm Ngày truyền thống lực lượng An ninh nhân dân Việt Nam, góp phần nâng cao nhận thức cộng đồng về an ninh quốc gia và trách nhiệm của mỗi công dân.</span>
+          <span class="en">"To Quoc Binh Yen" is a community communication campaign by the Ministry of Public Security marking the 80th anniversary of Vietnam's People's Security force, raising public awareness of national security and each citizen's responsibility.</span>
+        </p>
+        <ul class="p-list">
+          <li><b><span class="vi">Bối cảnh:</span><span class="en">Context:</span></b> <span class="vi">Chiến dịch tuyên truyền pháp luật phối hợp cùng các đơn vị công an (phường Hai Bà Trưng, phường Yên Hòa) nhằm phổ biến kiến thức pháp luật đến đông đảo người xem.</span><span class="en">A legal-awareness campaign in coordination with local police units (Hai Ba Trung and Yen Hoa wards) to spread legal knowledge to a wide audience.</span></li>
+          <li><b><span class="vi">Vai trò:</span><span class="en">Role:</span></b> <span class="vi">Trợ lý Sáng tạo Nội dung, viết kịch bản, quay và dựng.</span><span class="en">Content Creation Assistant - scriptwriting, filming and editing.</span></li>
+          <li><b><span class="vi">Triển khai:</span><span class="en">Execution:</span></b> <span class="vi">Viết và biên tập kịch bản video truyền thông, quay - dựng video ngắn bằng CapCut, ứng dụng công cụ AI cho nghiên cứu, lên ý tưởng và tối ưu nội dung để thông điệp rõ ràng, hấp dẫn.</span><span class="en">Wrote and edited communication scripts, shot and edited short videos with CapCut, and used AI tools for research, ideation and content optimization so the message stayed clear and engaging.</span></li>
+          <li><b><span class="vi">Kết quả:</span><span class="en">Result:</span></b> <span class="vi">Nội dung đạt 20.000 đến hơn 3 triệu lượt xem và tương tác trên các nền tảng số, minh chứng khả năng biến thông điệp pháp luật chính luận thành nội dung chạm tới người xem thật.</span><span class="en">Content reached 20,000 to over 3 million views and interactions across platforms - turning formal legal messaging into content that truly connects with viewers.</span></li>
+        </ul>
+        <div class="stat">
+          <b>20K - 3M+</b>
+          <span><span class="vi">lượt xem &amp; tương tác trên nền tảng số</span><span class="en">views &amp; interactions across platforms</span></span>
+        </div>
+        <div class="link-row">
+          <a class="vlink" href="https://www.facebook.com/share/r/15two7kfUSK/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Video 01 · Facebook</a>
+          <a class="vlink" href="https://www.facebook.com/share/r/18osKS4GZa/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Video 02 · Facebook</a>
+          <a class="vlink" href="https://www.facebook.com/share/v/19H3Sk1946/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Video 03 · Facebook</a>
+          <a class="vlink" href="https://www.tiktok.com/@ca_noithat/video/7630707578233785618" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Video 04 · TikTok</a>
+          <a class="vlink" href="https://www.facebook.com/share/v/1AW5M8exV6/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Video 05 · Facebook</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Project 02 -->
+    <article class="project reveal">
+      <div class="p-body">
+        <div class="p-num">02</div>
+        <h3><span class="vi">Trưởng nhóm các cuộc thi học thuật &amp; khởi nghiệp</span><span class="en">Team leader - academic &amp; startup competitions</span></h3>
+        <div class="p-role"><span class="vi">Vai trò: Trưởng nhóm / Quản lý dự án</span><span class="en">Role: Team leader / Project manager</span></div>
+        <ul class="p-list">
+          <li><b><span class="vi">Bối cảnh:</span><span class="en">Context:</span></b> <span class="vi">Các cuộc thi cấp trường và toàn quốc về kinh doanh, đổi mới sáng tạo và khởi nghiệp.</span><span class="en">University- and national-level competitions in business, innovation and entrepreneurship.</span></li>
+          <li><b><span class="vi">Vai trò:</span><span class="en">Role:</span></b> <span class="vi">Trưởng nhóm / Quản lý dự án.</span><span class="en">Team leader / Project manager.</span></li>
+          <li><b><span class="vi">Cách làm:</span><span class="en">Approach:</span></b> <span class="vi">Dẫn dắt đội nhóm đa ngành; thực hiện nghiên cứu thị trường và phân tích nhu cầu khách hàng; xây dựng mô hình kinh doanh, kế hoạch vận hành; thiết kế chiến lược truyền thông, slide thuyết trình và hồ sơ dự án; phân công, theo dõi tiến độ và đảm bảo đúng hạn.</span><span class="en">Led a cross-functional team; ran market research and customer-needs analysis; built the business model and operating plan; designed the communication strategy, pitch deck and project files; assigned work, tracked progress and ensured deadlines were met.</span></li>
+          <li><b><span class="vi">Kết quả:</span><span class="en">Result:</span></b> <span class="vi">Giải Ba - HSB Innovation Ignition 2025; Quán Quân - Sinh Viên Thế Hệ Mới 2025.</span><span class="en">Third Prize - HSB Innovation Ignition 2025; Champion - New Generation Student 2025.</span></li>
+        </ul>
+      </div>
+      <div class="gallery g3">
+        <div class="thumb"><img data-base="truong-nhom-cac-cuoc-thi-hoc-thuat-khoi-nghiep-1" alt="Competition" onerror="imgFallback(this)"></div>
+        <div class="thumb"><img data-base="truong-nhom-cac-cuoc-thi-hoc-thuat-khoi-nghiep-2" alt="Competition" onerror="imgFallback(this)"></div>
+        <div class="thumb"><img data-base="truong-nhom-cac-cuoc-thi-hoc-thuat-khoi-nghiep-3" alt="Competition" onerror="imgFallback(this)"></div>
+      </div>
+    </article>
+
+    <!-- Project 03 -->
+    <article class="project reveal">
+      <div class="p-body">
+        <div class="p-num">03</div>
+        <h3><span class="vi">Chiến dịch lễ hội GrabFood "Tiệc Trăng Rằm - Ấm vị quê"</span><span class="en">GrabFood seasonal campaign "Tiec Trang Ram - Am vi que"</span></h3>
+        <div class="p-role"><span class="vi">Vai trò: Toàn bộ quy trình - ý tưởng, chụp ảnh, hậu kỳ, thiết kế</span><span class="en">Role: End-to-end - ideation, photography, post, design</span></div>
+        <p class="p-intro">
+          <span class="vi">Với campaign Trung Thu của GrabFood "Tiệc Trăng Rằm - Ấm vị quê" (dự án cuối kỳ học phần Digital Marketing), tôi đảm nhận toàn bộ quy trình: lên ý tưởng, chụp ảnh, xử lý hậu kỳ và thiết kế layout trên Canva, kèm mockup 2D cho TikTok/Reels.</span>
+          <span class="en">For GrabFood's Mid-Autumn campaign "Tiec Trang Ram - Am vi que" (Digital Marketing capstone), I owned the full process: ideation, photography, post-production and layout design in Canva, plus 2D TikTok/Reels mockups.</span>
+        </p>
+        <ul class="p-list">
+          <li><b>Big Idea:</b> <span class="vi">"Tiệc Trăng Rằm - Ấm vị quê" - kết nối hương vị ẩm thực quê hương với tinh thần sum vầy của mùa Trung Thu.</span><span class="en">"Tiec Trang Ram - Am vi que" - connecting homeland flavors with the togetherness of the Mid-Autumn season.</span></li>
+          <li><b>Context:</b> <span class="vi">Chiến dịch truyền thông mùa lễ hội cho GrabFood, thực hiện từ concept đến bộ ấn phẩm hoàn chỉnh.</span><span class="en">A seasonal communication campaign for GrabFood, taken from concept to a complete visual set.</span></li>
+          <li><b>Objective:</b> <span class="vi">Tăng nhận diện chương trình ưu đãi mùa lễ, khuyến khích đặt đơn nhóm và tôn vinh ẩm thực vùng miền.</span><span class="en">Raise awareness of the seasonal promotion, encourage group orders and celebrate regional cuisine.</span></li>
+          <li><b>My Role &amp; Process:</b> <span class="vi">Đảm nhận toàn bộ: lên ý tưởng, chụp ảnh, xử lý hậu kỳ và thiết kế layout trên Canva.</span><span class="en">End-to-end ownership: ideation, photography, post-production and layout design in Canva.</span></li>
+          <li><b>Content Type:</b> <span class="vi">Festive / Seasonal Campaign, Visual Design.</span><span class="en">Festive / seasonal campaign, visual design.</span></li>
+          <li><b>Platform:</b> <span class="vi">Landing page và Social media visuals.</span><span class="en">Landing page and social-media visuals.</span></li>
+          <li><b>Content Focus:</b> <span class="vi">Bộ ấn phẩm landing page, banner ưu đãi, collection ẩm thực vùng miền, visual mời tham gia challenge.</span><span class="en">Landing-page set, promo banners, regional-food collection and challenge-invitation visuals.</span></li>
+        </ul>
+      </div>
+      <div class="gallery gfeat">
+        <div class="thumb wide"><img data-base="campaign-1" alt="GrabFood main banner" onerror="imgFallback(this)"></div>
+        <div class="thumb"><img data-base="campaign-2" alt="GrabFood campaign" onerror="imgFallback(this)"></div>
+        <div class="thumb"><img data-base="campaign-3" alt="GrabFood campaign" onerror="imgFallback(this)"></div>
+        <div class="thumb"><img data-base="campaign-4" alt="GrabFood campaign" onerror="imgFallback(this)"></div>
+        <div class="thumb"><img data-base="campaign-5" alt="GrabFood campaign" onerror="imgFallback(this)"></div>
+      </div>
+    </article>
+
+    <!-- Project 04 (Poseidon) -->
+    <article class="project reveal">
+      <div class="p-body">
+        <div class="p-num">04</div>
+        <h3>Poseidon Table Booking App</h3>
+        <div class="p-role"><span class="vi">Vai trò: Nghiên cứu · Thiết kế · Phát triển sản phẩm</span><span class="en">Role: Research · Design · Product development</span></div>
+        <p class="desc" style="color:#3a3f47;margin-bottom:18px">
+          <span class="vi">Nghiên cứu chuyển đổi số cho chuỗi buffet Poseidon (24 chi nhánh), khảo sát 2 cơ sở Hà Nội qua quan sát thực tế và phân tích hơn 200 đánh giá Google Maps để tìm vấn đề trong quy trình đặt bàn. Từ đó thiết kế và trực tiếp phát triển ứng dụng web quản lý đặt bàn với hai giao diện khách hàng - quản trị, đồng bộ dữ liệu thời gian thực. Tính năng: đặt bàn trực tuyến, gợi ý xếp bàn thông minh, quản lý đặt chỗ, QR check-in và phân tích nhu cầu khách hàng.</span>
+          <span class="en">Digital-transformation study for the Poseidon buffet chain (24 branches), surveying two Ha Noi sites via field observation and 200+ Google Maps reviews to pinpoint booking-process problems. Designed and hands-on built a web booking app with separate customer and admin interfaces and real-time data sync. Features: online booking, smart table suggestions, reservation management, QR check-in and customer-demand analytics.</span>
+        </p>
+        <div class="link-row">
+          <a class="btn solid" href="https://final-project-gr14.vercel.app/" target="_blank" rel="noopener">
+            <span class="vi">Xem sản phẩm trực tiếp</span><span class="en">View live app</span>
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+          </a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ================= AWARDS ================= -->
+<section id="awards" class="band">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-num">05 · <span class="vi">Thành tựu &amp; chứng chỉ</span><span class="en">Awards &amp; certificates</span></div>
+      <h2><span class="vi">Thành tựu nổi bật</span><span class="en">Highlights</span></h2>
+    </div>
+    <div class="ach-grid">
+      <div class="ach-col reveal">
+        <h4><span class="vi">Giải thưởng &amp; cuộc thi</span><span class="en">Awards &amp; competitions</span></h4>
+        <ul class="ach-list">
+          <li><span class="vi">Bằng khen của Bộ Giáo dục - Giải Nhất &amp; Quán Quân, Sinh Viên Thế Hệ Mới 2025</span><span class="en">Certificate of Merit, Ministry of Education - First Prize &amp; Champion, New Generation Student 2025</span></li>
+          <li><span class="vi">Giải Nhì - HSB Innovation Ignition 2024</span><span class="en">Second Prize - HSB Innovation Ignition 2024</span></li>
+          <li><span class="vi">Giải Ba - HSB Innovation Ignition 2025</span><span class="en">Third Prize - HSB Innovation Ignition 2025</span></li>
+          <li><span class="vi">Chứng nhận hoạt động ngoại khóa tích cực HSB 2023</span><span class="en">Active Extracurricular Certificate, HSB 2023</span></li>
+        </ul>
+        <h4><span class="vi">Học bổng &amp; ngoại ngữ</span><span class="en">Scholarships &amp; languages</span></h4>
+        <ul class="ach-list">
+          <li><span class="vi">Học bổng Giỏi - Học kỳ I (2023-2024); Học bổng Thạc sĩ toàn phần HSB</span><span class="en">Merit Scholarship - Semester I (2023-2024); full HSB Master's Scholarship</span></li>
+          <li><span class="vi">Tiếng Anh B2 - Aptis ESOL (B2), Cambridge PET (B1)</span><span class="en">English B2 - Aptis ESOL (B2), Cambridge PET (B1)</span></li>
+        </ul>
+      </div>
+      <div class="reveal">
+        <div class="gallery g2 ach-gallery">
+          <div class="thumb"><img data-base="giai-thuong-1" alt="Award" onerror="imgFallback(this)"></div>
+          <div class="thumb"><img data-base="giai-thuong-2" alt="Award" onerror="imgFallback(this)"></div>
+          <div class="thumb"><img data-base="giai-thuong-3" alt="Award" onerror="imgFallback(this)"></div>
+          <div class="thumb"><img data-base="giai-thuong-4" alt="Award" onerror="imgFallback(this)"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PHILOSOPHY ================= -->
+<section>
+  <div class="wrap quote">
+    <div class="reveal">
+      <div class="sec-num" style="margin-bottom:18px">06 · <span class="vi">Phương châm làm việc</span><span class="en">Work philosophy</span></div>
+      <blockquote>
+        <span class="vi">Một ý tưởng tốt chỉ thực sự tạo ra giá trị khi được triển khai đúng cách và tiếp cận đúng đối tượng vào đúng thời điểm.</span>
+        <span class="en">A good idea only creates value when it is executed the right way and reaches the right audience at the right time.</span>
+      </blockquote>
+    </div>
+    <div class="portrait reveal">
+      <img data-base="profile-3" alt="Nguyễn Hải Hà" onerror="imgFallback(this)">
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-num">07 · <span class="vi">Liên hệ</span><span class="en">Contact</span></div>
+      <h2><span class="vi">Cảm ơn!</span><span class="en">Thank you!</span></h2>
+      <p><span class="vi">Cảm ơn Quý Nhà tuyển dụng đã dành thời gian xem portfolio của tôi. Tôi hy vọng những dự án và trải nghiệm được chia sẻ trong portfolio này đã phần nào thể hiện năng lực, tư duy làm việc và tinh thần học hỏi của bản thân, cũng như những giá trị tôi mong muốn được đóng góp cho Quý công ty. Tôi rất mong có cơ hội được trao đổi thêm và sẵn sàng tham gia buổi phỏng vấn vào thời gian thuận tiện của Quý công ty.</span><span class="en">Thank you for taking the time to view my portfolio. I hope the projects and experiences shared here reflect my capabilities, working mindset and eagerness to learn, as well as the value I hope to contribute to your company. I would welcome the opportunity to talk further and am ready to attend an interview at a time convenient for you.</span></p>
+    </div>
+    <div class="contact-grid">
+      <ul class="cinfo reveal">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg> 0969964871</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg> haiha5568.work@gmail.com</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg> <span class="vi">Phú Diễn, Bắc Từ Liêm, Hà Nội</span><span class="en">Phu Dien, Bac Tu Liem, Ha Noi</span></li>
+      </ul>
+      <div class="reveal">
+        <div class="hero-cta">
+          <a class="btn solid" href="mailto:haiha5568.work@gmail.com"><span class="vi">Gửi email</span><span class="en">Send email</span></a>
+          <a class="btn" href="cv.pdf" target="_blank" rel="noopener"><span class="vi">Tải CV</span><span class="en">Download CV</span></a>
+        </div>
+      </div>
+    </div>
+    <footer>© 2026 Nguyễn Hải Hà - Marketing &amp; Communication Portfolio</footer>
+  </div>
+</section>
+
+<!-- lightbox -->
+<div class="lb" id="lb"><button class="lb-close" aria-label="Close">&times;</button><img id="lbimg" src="" alt=""></div>
+
+<script>
+  // ---- image extension fallback (jpg/jpeg/png/webp, upper/lower) ----
+  var EXTS = ["jpg","jpeg","png","webp","JPG","PNG","JPEG"];
+  function setInitial(img){
+    if(!img.dataset.base) return;
+    img.dataset.ei = "0";
+    img.src = "images/" + img.dataset.base + "." + EXTS[0];
+  }
+  function imgFallback(img){
+    var i = parseInt(img.dataset.ei || "0", 10) + 1;
+    if(i >= EXTS.length){ img.style.visibility="hidden"; return; }
+    img.dataset.ei = String(i);
+    img.src = "images/" + img.dataset.base + "." + EXTS[i];
+  }
+  document.querySelectorAll("img[data-base]").forEach(setInitial);
+
+  // ---- language toggle ----
+  var saved = null;
+  try { saved = localStorage.getItem("lang"); } catch(e){}
+  if(saved){ document.documentElement.setAttribute("data-lang", saved); }
+  function setLang(l){
+    document.documentElement.setAttribute("data-lang", l);
+    document.documentElement.setAttribute("lang", l);
+    try { localStorage.setItem("lang", l); } catch(e){}
+    document.querySelectorAll(".lang button").forEach(function(b){
+      b.classList.toggle("active", b.dataset.set === l);
+    });
+  }
+  document.querySelectorAll(".lang button").forEach(function(b){
+    b.addEventListener("click", function(){ setLang(b.dataset.set); });
+  });
+  setLang(document.documentElement.getAttribute("data-lang") || "vi");
+
+  // ---- lightbox ----
+  var lb = document.getElementById("lb"), lbimg = document.getElementById("lbimg");
+  document.querySelectorAll(".thumb img").forEach(function(img){
+    img.addEventListener("click", function(){
+      if(img.style.visibility==="hidden") return;
+      lbimg.src = img.currentSrc || img.src; lb.classList.add("open");
+    });
+  });
+  function closeLb(){ lb.classList.remove("open"); lbimg.src=""; }
+  lb.addEventListener("click", function(e){ if(e.target===lb || e.target.classList.contains("lb-close")) closeLb(); });
+  document.addEventListener("keydown", function(e){ if(e.key==="Escape") closeLb(); });
+
+  // ---- scroll reveal ----
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); } });
+  }, { threshold:.12 });
+  document.querySelectorAll(".reveal").forEach(function(el){ io.observe(el); });
+</script>
+</body>
+</html>
